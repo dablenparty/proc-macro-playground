@@ -1,5 +1,5 @@
 [package]
-name = "proc_macro_playground"
+name = "proc-macro-playground"
 version = "0.1.0"
 edition = "2021"
 publish = false
@@ -11,4 +11,5 @@ name = "proc_macro_playground"
 path = "src/lib.rs"
 
 [dependencies]
-playground_core_lib = { path = "playground-core-lib" }
+clone-getters-macro = { path = "clone-getters-macro" }
+playground-core-lib = { path = "playground-core-lib" }

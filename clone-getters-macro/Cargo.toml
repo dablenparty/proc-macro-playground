@@ -1,5 +1,5 @@
 [package]
-name = "clone_getters_macro"
+name = "clone-getters-macro"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,3 +11,7 @@ path = "src/lib.rs"
 proc-macro = true
 
 [dependencies]
+playground-core-lib = { path = "../playground-core-lib" }
+proc-macro2 = "*"
+quote = "*"
+syn = { version = "*", features = ["full"] }

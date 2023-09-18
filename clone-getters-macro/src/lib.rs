@@ -1,14 +1,8 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+use proc_macro::{self, TokenStream};
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod getters;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[proc_macro_derive(CloneGetters)]
+pub fn derive_macro_clone_getters(input: TokenStream) -> TokenStream {
+    getters::clone_getter_proc_macro_impl(input)
 }
