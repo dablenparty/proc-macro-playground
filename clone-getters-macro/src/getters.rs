@@ -1,5 +1,5 @@
 use proc_macro::TokenStream;
-use quote::quote;
+use quote::{format_ident, quote};
 use syn::{parse_macro_input, DeriveInput};
 
 pub fn clone_getter_proc_macro_impl(input: TokenStream) -> TokenStream {
@@ -15,8 +15,9 @@ pub fn clone_getter_proc_macro_impl(input: TokenStream) -> TokenStream {
         .map(|f| {
             let field_name = f.ident.clone().expect("Tuple structs are not supported");
             let field_type = &f.ty;
+            let fn_name = format_ident!("{}_clone", field_name);
             quote! {
-                pub fn #field_name(&self) -> #field_type {
+                pub fn #fn_name(&self) -> #field_type {
                     self.#field_name.clone()
                 }
             }
