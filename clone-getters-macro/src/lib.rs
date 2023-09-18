@@ -1,3 +1,4 @@
+#![allow(clippy::all, clippy::pedantic)]
 use proc_macro::{self, TokenStream};
 
 mod getters;
