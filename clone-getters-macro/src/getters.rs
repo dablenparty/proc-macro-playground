@@ -4,9 +4,7 @@ use syn::{parse_macro_input, DeriveInput};
 
 pub fn clone_getter_proc_macro_impl(input: TokenStream) -> TokenStream {
     let DeriveInput { ident, data, .. } = parse_macro_input!(input);
-    let struct_data = if let syn::Data::Struct(struct_data) = data {
-        struct_data
-    } else {
+    let syn::Data::Struct(struct_data) = data else {
         panic!("CloneGetters only supports structs");
     };
     let getters = struct_data
